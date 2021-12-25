@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ecad1561-ed18-42b2-8ba8-c7c3a832ea81": {
+      "ProjectGuid": "ecad1561-ed18-42b2-8ba8-c7c3a832ea81",
+      "DisplayName": "catGirl",
+      "ColorIndex": 0
+    },
+    "be63f73a-8019-443d-80d5-a00623f87014": {
+      "ProjectGuid": "be63f73a-8019-443d-80d5-a00623f87014",
+      "DisplayName": "level2",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
