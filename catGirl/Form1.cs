@@ -111,11 +111,18 @@ namespace catGirl
 
                     // if the missed number is greater than 5
                     // we need to stop the game
-                    if (tool["Missed"] > 10 || tool["S_timer"] == 0)
+                    if (tool["Missed"] > 10 || tool["S_timer"] <= 0)
                     {
                         MainTimer1.Stop(); // stop the game timer
                         // show the message box to say game is over. 
-                        MessageBox.Show("Game Over!! We lost good Strawberry" + "\r\n" + "Click OK to Restart");
+                        if (tool["Missed"] > 10)
+                        {
+                            MessageBox.Show("Game Over!! We lost good Strawberry" + "\r\n" + "Click OK to Restart");
+                            tool["S_timer"] = 0;
+                        }
+                        else
+                            MessageBox.Show("Game Over!! Time is out" + "\r\n" + "Click OK to Restart");
+
                         // once the players clicks OK we restart the game again
                         Restart();
                     }
@@ -161,6 +168,7 @@ namespace catGirl
             tool["Score"] = 0;
             tool["speed"] = 5;
             tool["Missed"] = 0;
+            tool["S_timer"] = 30;
 
             //start timer
            MainTimer1.Start();
@@ -169,6 +177,11 @@ namespace catGirl
             player.Image = Properties.Resources.girl2; // change the player picture to face left
 
 
+
+        }
+
+        private void timer_Click(object sender, EventArgs e)
+        {
 
         }
     }

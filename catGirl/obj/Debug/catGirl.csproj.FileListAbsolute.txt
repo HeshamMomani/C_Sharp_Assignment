@@ -30,3 +30,13 @@ C:\Users\hp\OneDrive\Desktop\c# project\C_Sharp_Assignment\catGirl\obj\Debug\cat
 C:\Users\hp\OneDrive\Desktop\c# project\C_Sharp_Assignment\catGirl\obj\Debug\catGirl.csproj.CoreCompileInputs.cache
 C:\Users\hp\OneDrive\Desktop\c# project\C_Sharp_Assignment\catGirl\obj\Debug\catGirl.exe
 C:\Users\hp\OneDrive\Desktop\c# project\C_Sharp_Assignment\catGirl\obj\Debug\catGirl.pdb
+D:\Hesham\C#\GitHub\C_Sharp_Assignment\catGirl\bin\Debug\catGirl.exe.config
+D:\Hesham\C#\GitHub\C_Sharp_Assignment\catGirl\bin\Debug\catGirl.exe
+D:\Hesham\C#\GitHub\C_Sharp_Assignment\catGirl\bin\Debug\catGirl.pdb
+D:\Hesham\C#\GitHub\C_Sharp_Assignment\catGirl\obj\Debug\catGirl.csprojAssemblyReference.cache
+D:\Hesham\C#\GitHub\C_Sharp_Assignment\catGirl\obj\Debug\catGirl.Level1.resources
+D:\Hesham\C#\GitHub\C_Sharp_Assignment\catGirl\obj\Debug\catGirl.Properties.Resources.resources
+D:\Hesham\C#\GitHub\C_Sharp_Assignment\catGirl\obj\Debug\catGirl.csproj.GenerateResource.cache
+D:\Hesham\C#\GitHub\C_Sharp_Assignment\catGirl\obj\Debug\catGirl.csproj.CoreCompileInputs.cache
+D:\Hesham\C#\GitHub\C_Sharp_Assignment\catGirl\obj\Debug\catGirl.exe
+D:\Hesham\C#\GitHub\C_Sharp_Assignment\catGirl\obj\Debug\catGirl.pdb

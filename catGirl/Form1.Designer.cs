@@ -84,7 +84,7 @@
             // fruit
             // 
             this.fruit.Image = global::catGirl.Properties.Resources.fruit;
-            this.fruit.Location = new System.Drawing.Point(78, 84);
+            this.fruit.Location = new System.Drawing.Point(145, 66);
             this.fruit.Name = "fruit";
             this.fruit.Size = new System.Drawing.Size(89, 104);
             this.fruit.TabIndex = 7;
@@ -105,19 +105,22 @@
             // 
             this.timer.AutoSize = true;
             this.timer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.timer.Dock = System.Windows.Forms.DockStyle.Top;
             this.timer.Font = new System.Drawing.Font("Freestyle Script", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timer.Location = new System.Drawing.Point(731, 9);
+            this.timer.Location = new System.Drawing.Point(0, 0);
             this.timer.Name = "timer";
             this.timer.Size = new System.Drawing.Size(105, 44);
             this.timer.TabIndex = 12;
             this.timer.Text = "Timer : ";
+            this.timer.Click += new System.EventHandler(this.timer_Click);
             // 
             // miss
             // 
             this.miss.AutoSize = true;
             this.miss.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.miss.Dock = System.Windows.Forms.DockStyle.Top;
             this.miss.Font = new System.Drawing.Font("Freestyle Script", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.miss.Location = new System.Drawing.Point(524, 7);
+            this.miss.Location = new System.Drawing.Point(0, 44);
             this.miss.Name = "miss";
             this.miss.Size = new System.Drawing.Size(129, 44);
             this.miss.TabIndex = 13;
@@ -127,8 +130,9 @@
             // 
             this.sc.AutoSize = true;
             this.sc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.sc.Dock = System.Windows.Forms.DockStyle.Top;
             this.sc.Font = new System.Drawing.Font("Freestyle Script", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sc.Location = new System.Drawing.Point(286, 9);
+            this.sc.Location = new System.Drawing.Point(0, 88);
             this.sc.Name = "sc";
             this.sc.Size = new System.Drawing.Size(118, 44);
             this.sc.TabIndex = 14;
