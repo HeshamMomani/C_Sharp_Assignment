@@ -35,8 +35,9 @@
             this.logo = new System.Windows.Forms.PictureBox();
             this.fruit = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.sc = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Label();
             this.miss = new System.Windows.Forms.Label();
+            this.sc = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.f2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -100,25 +101,38 @@
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Tag = "fruit";
             // 
-            // sc
+            // timer
             // 
-            this.sc.AutoSize = true;
-            this.sc.Font = new System.Drawing.Font("Freestyle Script", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sc.Location = new System.Drawing.Point(12, 0);
-            this.sc.Name = "sc";
-            this.sc.Size = new System.Drawing.Size(116, 42);
-            this.sc.TabIndex = 9;
-            this.sc.Text = "Score : 0";
+            this.timer.AutoSize = true;
+            this.timer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.timer.Font = new System.Drawing.Font("Freestyle Script", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timer.Location = new System.Drawing.Point(731, 9);
+            this.timer.Name = "timer";
+            this.timer.Size = new System.Drawing.Size(105, 44);
+            this.timer.TabIndex = 12;
+            this.timer.Text = "Timer : ";
             // 
             // miss
             // 
             this.miss.AutoSize = true;
+            this.miss.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.miss.Font = new System.Drawing.Font("Freestyle Script", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.miss.Location = new System.Drawing.Point(747, 0);
+            this.miss.Location = new System.Drawing.Point(524, 7);
             this.miss.Name = "miss";
-            this.miss.Size = new System.Drawing.Size(127, 42);
-            this.miss.TabIndex = 10;
+            this.miss.Size = new System.Drawing.Size(129, 44);
+            this.miss.TabIndex = 13;
             this.miss.Text = "Missed : 0";
+            // 
+            // sc
+            // 
+            this.sc.AutoSize = true;
+            this.sc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.sc.Font = new System.Drawing.Font("Freestyle Script", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sc.Location = new System.Drawing.Point(286, 9);
+            this.sc.Name = "sc";
+            this.sc.Size = new System.Drawing.Size(118, 44);
+            this.sc.TabIndex = 14;
+            this.sc.Text = "Score : 0";
             // 
             // Level1
             // 
@@ -126,8 +140,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCoral;
             this.ClientSize = new System.Drawing.Size(884, 665);
-            this.Controls.Add(this.miss);
             this.Controls.Add(this.sc);
+            this.Controls.Add(this.miss);
+            this.Controls.Add(this.timer);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.fruit);
             this.Controls.Add(this.f2);
@@ -157,8 +172,9 @@
         private System.Windows.Forms.Timer MainTimer1;
         private System.Windows.Forms.PictureBox fruit;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label sc;
+        private System.Windows.Forms.Label timer;
         private System.Windows.Forms.Label miss;
+        private System.Windows.Forms.Label sc;
     }
 }
 

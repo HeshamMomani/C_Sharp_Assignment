@@ -12,8 +12,8 @@ namespace catGirl
 {
     public partial class Level1 : Form
     {
-        bool GoLeft, GoRight;
-        int Score = 0,  speed=12, Missed=0;
+        Dictionary<string, int> tool = new Dictionary<string, int>() { { "score", 0 }, { "speed", 12 }, { "Missed", 0 }, { "ms_timer", 30 }, { "S_timer", 30 } };
+        Dictionary<string, bool> move = new Dictionary<string, bool>() { { "GoLeft", false }, { "GoRight", false } };
 
         Random randA = new Random();
         Random randB = new Random();
@@ -27,17 +27,26 @@ namespace catGirl
 
         private void Level1_Load(object sender, EventArgs e)
         {
-           
+            sc.Location = new Point(20, 30);
+            miss.Location = new Point(220, 30);
+            timer.Location = new Point(420, 30);
         }
 
         private void GameTick(object sender, EventArgs e)
         {
-           sc.Text = "Score :" + Score; //label
-         miss.Text = "Misssed :" + Missed;//label;
-           
+           sc.Text = "Score :" + tool["Score"]; //label
+         miss.Text = "Misssed :" + tool["Missed"];//label;
+           timer.Text = "Timer:  " + tool["S_timer"] + " : " + tool["ms_timer"]--;//timer label
+           //if milisecond equal 0 the second will decresse by 1 and the ms_timer will back to 59ms
+            if (tool["ms_timer"] == 0)
+            {
+                tool["S_timer"]--;
+                tool["ms_timer"] = 30;
+            }
+
 
             // if the go left boolean is true AND player left is greater than 0
-            if (GoLeft == true && player.Left > 0)
+            if (move["GoLeft"] == true && player.Left > 0)
             {
                 // then we move the chicken 10 pixels to the left
                 player.Left -= 10;
@@ -47,7 +56,7 @@ namespace catGirl
 
             //if the go right is true AND player width and left is less than form width
             // meaning the player is still within the frame of the game
-            if (GoRight == true && player.Left + player.Width < this.ClientSize.Width)
+            if (move["GoRight"] == true && player.Left + player.Width < this.ClientSize.Width)
             {
                 // move the player 10 pixels to the right
                 player.Left += 10;
@@ -64,7 +73,7 @@ namespace catGirl
                 if (strawberry is PictureBox && (string)strawberry.Tag == "fruit")
                 {
                     // then move strawberry towards the bottom
-                    strawberry.Top += speed;
+                    strawberry.Top += tool["speed"];
 
 
                     // if the strawberry reaches bottom of the screen
@@ -81,7 +90,7 @@ namespace catGirl
 
                         strawberry.Top = randA.Next(20, 100) * -1; // position the strawberry to a random  location
                         strawberry.Left = randB.Next(5, this.ClientSize.Width - strawberry.Width); // position the strawberry to a random location
-                        Missed++; // add 1 to the missed integer
+                        tool["Missed"]++; // add 1 to the missed integer
 
                     }
 
@@ -91,18 +100,18 @@ namespace catGirl
                     {
                         strawberry.Top = randA.Next(80, 100) * -1; // position the strawberry to a random  location
                         strawberry.Left = randB.Next(5, this.ClientSize.Width - strawberry.Width); // position the strawberry to a random X location
-                        Score++; // add 1 to the score
+                        tool["Score"]++; // add 1 to the score
                     }
 
                     // if the score is equals to or greater than 20
-                    if (Score >= 20)
+                    if (tool["Score"] >= 20)
                     {
-                        speed = 16; // increase the strawberry speed to 20
+                        tool["speed"] = 16; // increase the strawberry speed to 20
                     }
 
                     // if the missed number is greater than 5
                     // we need to stop the game
-                    if (Missed > 10)
+                    if (tool["Missed"] > 10 || tool["S_timer"] == 0)
                     {
                         MainTimer1.Stop(); // stop the game timer
                         // show the message box to say game is over. 
@@ -126,18 +135,18 @@ namespace catGirl
         {
             //if left or rigth key pressed it going to change
             if (e.KeyCode == Keys.Left)
-                GoLeft = true;
+                move["GoLeft"] = true;
             if (e.KeyCode == Keys.Right)
-                GoRight = true;
+                move["GoRight"] = true;
         }
 
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
             //keys are released
             if (e.KeyCode == Keys.Left)
-                GoLeft = false;
+                move["GoLeft"] = false;
             if (e.KeyCode == Keys.Right)
-                GoRight = false;
+                move["GoRight"] = false;
         }
         public void Restart() { 
         foreach(Control strawberry in this.Controls)
@@ -149,9 +158,9 @@ namespace catGirl
                 strawberry.Left = randB.Next(5, this.ClientSize.Width - strawberry.Width); // to apper random from left 5 and the right we should calculate it
             }
         // starting value
-            Score = 0;
-            speed = 5;
-            Missed = 0;
+            tool["Score"] = 0;
+            tool["speed"] = 5;
+            tool["Missed"] = 0;
 
             //start timer
            MainTimer1.Start();
