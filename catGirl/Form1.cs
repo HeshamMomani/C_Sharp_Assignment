@@ -12,17 +12,25 @@ namespace catGirl
 {
     public partial class Level1 : Form
     {
-        Dictionary<string, int> tool = new Dictionary<string, int>() { { "score", 0 }, { "speed", 12 }, { "Missed", 0 }, { "ms_timer", 30 }, { "S_timer", 30 } };
+        
+        Dictionary<string, int> tool = new Dictionary<string, int>() { { "Score", 0 }, { "speed", 5 }, { "Missed", 0 }, { "ms_timer", 30 }, { "S_timer", 30 } };
         Dictionary<string, bool> move = new Dictionary<string, bool>() { { "GoLeft", false }, { "GoRight", false } };
-
+        //for LINQ
+        public static Dictionary<string, int> tool2 = new Dictionary<string, int>() { { "Score", 0 }, { "speed", 12 }, { "Missed", 0 }, { "ms_timer", 30 }, { "S_timer", 30 } };
+       //
         Random randA = new Random();
         Random randB = new Random();
         PictureBox drop = new PictureBox(); // create a new drop picture box, this will added dynamically
-
+        public static Level1 instance3;
+        public Label user_name;
         public Level1()
         {
             InitializeComponent();
+            instance3 = this;
+           user_name = name;
+        
             Restart();
+
         }
 
         private void Level1_Load(object sender, EventArgs e)
@@ -30,11 +38,15 @@ namespace catGirl
             sc.Location = new Point(20, 30);
             miss.Location = new Point(220, 30);
             timer.Location = new Point(420, 30);
+           name.Location = new Point(552, 0);
+            close.Location = new Point(845, 0);   
+            back.Location = new Point(789, 1);    
         }
 
-        private void GameTick(object sender, EventArgs e)
+        private void GameTick(object sender, EventArgs e )
         {
-           sc.Text = "Score :" + tool["Score"]; //label
+          
+            sc.Text = "Score :" + tool["Score"]; //label
          miss.Text = "Misssed :" + tool["Missed"];//label;
            timer.Text = "Timer:  " + tool["S_timer"] + " : " + tool["ms_timer"]--;//timer label
            //if milisecond equal 0 the second will decresse by 1 and the ms_timer will back to 59ms
@@ -111,18 +123,22 @@ namespace catGirl
 
                     // if the missed number is greater than 5
                     // we need to stop the game
-                    if (tool["Missed"] > 10 || tool["S_timer"] <= 0)
+                    if (tool["Missed"] > 10       || (tool["S_timer"] <= 0 && tool["ms_timer"] <= 0))
                     {
+                        //save information for LINQ
+                        tool2["Score"] = tool["Score"];
+                        tool2["Missed"] = tool["Missed"];
+                        tool2["S_timer"] = tool["S_timer"];
+                        tool2["ms_timer"] = tool["ms_timer"];
+                        // add all score
+                        newGame.user_all_score += tool["Score"];
+                        ///////////////////////////////////////////////
                         MainTimer1.Stop(); // stop the game timer
                         // show the message box to say game is over. 
-                        if (tool["Missed"] > 10)
-                        {
-                            MessageBox.Show("Game Over!! We lost good Strawberry" + "\r\n" + "Click OK to Restart");
-                            tool["S_timer"] = 0;
-                        }
-                        else
+            
+                        
                             MessageBox.Show("Game Over!! Time is out" + "\r\n" + "Click OK to Restart");
-
+                        /*todo game final game page*/
                         // once the players clicks OK we restart the game again
                         Restart();
                     }
@@ -162,7 +178,7 @@ namespace catGirl
                 if(strawberry is PictureBox && (string)strawberry.Tag=="fruit")
                     // make fuits apper randomly
                     strawberry.Top = randA.Next(5, 100) * -1; // -1 to move down
-                strawberry.Left = randB.Next(5, this.ClientSize.Width - strawberry.Width); // to apper random from left 5 and the right we should calculate it
+                strawberry.Left = randB.Next(2, this.ClientSize.Width - strawberry.Width); // to apper random from left 5 and the right we should calculate it
             }
         // starting value
             tool["Score"] = 0;
@@ -180,9 +196,48 @@ namespace catGirl
 
         }
 
+        //LINQ
+        //return score
+        public static int Score_result()
+        {
+            return tool2.Where(x => x.Key == "Score").Select(x => x.Value).FirstOrDefault();
+        }
+        //return missed
+        public static int Missed_result()
+        {
+            return tool2.Where(y => y.Key == "Missed").Select(y => y.Value).FirstOrDefault();
+        }
+       // return millisecond
+        public static int ms_timer_result()
+        {
+            return tool2.Where(x => x.Key == "ms_timer").Select(x => x.Value).FirstOrDefault();
+        }
+        //return seconds
+        public static int S_timer_result()
+        {
+            return tool2.Where(x => x.Key == "S_timer").Select(x => x.Value).FirstOrDefault();
+        }
+        // end LINQ
         private void timer_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        //Menu
+        //exit game
+        
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Form2 x = new Form2();
+            x.Show();
+            this.Hide();
         }
     }
 }

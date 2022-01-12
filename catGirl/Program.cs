@@ -16,7 +16,7 @@ namespace catGirl
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Level1());
+            Application.Run(new Form2());
         }
     }
 }
