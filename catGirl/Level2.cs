@@ -128,7 +128,7 @@ namespace catGirl
                         if ((string)Jewel.Tag == "Jewel")
                             tool["Score"]++;
                         else if ((string)Jewel.Tag == "TimeBonus")
-                            tool["Score"] += 5;
+                        { tool["Score"] += 5; tool["S_Timer"] += 5; }
                         else if ((string)Jewel.Tag == "Bomb")
                             tool["S_Timer"] -= 7;
                     }

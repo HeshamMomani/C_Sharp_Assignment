@@ -120,7 +120,7 @@ namespace catGirl
                         else if ((string)strawberry.Tag == "addTime")
                         {
                             tool["Score"] += 15; // add 15 to the score
-                            tool["S_timer"]++;
+                            tool["S_timer"]+=5;
                         }
                         else if ((string)strawberry.Tag == "badfruit")
                         {
