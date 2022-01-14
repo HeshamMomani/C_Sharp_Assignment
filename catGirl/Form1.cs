@@ -156,9 +156,8 @@ namespace catGirl
                         tool2["ms_timer"] = tool["ms_timer"];
                         // add all score
                         newGame.user_all_score += tool["Score"];
-                      
+
                         MessageBox.Show("Game Over!! We lost alot of Jewels" + "\r\n" + "Click OK to Restart");
-                        MainTimer1.Stop();
                         a.Show(); 
                         this.Hide();
                       

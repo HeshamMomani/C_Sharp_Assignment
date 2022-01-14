@@ -34,7 +34,7 @@ namespace catGirl
             if (newGame.level == 1) 
                 dura.Text = Convert.ToString(30 - Level1.S_timer_result()) + " S";
             else if (newGame.level == 2)
-                dura.Text = Convert.ToString(Level2.S_timer_result())+" S";
+                dura.Text = Convert.ToString(30-Level2.S_timer_result())+" S";
             if (newGame.level == 3)
                 dura.Text = Convert.ToString(Level3.S_timer_result()) + " S";
             ///////////////////////

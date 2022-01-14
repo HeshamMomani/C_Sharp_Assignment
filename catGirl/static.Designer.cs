@@ -223,9 +223,9 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::catGirl.Properties.Resources.line;
-            this.pictureBox3.Location = new System.Drawing.Point(277, 74);
+            this.pictureBox3.Location = new System.Drawing.Point(282, 83);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(128, 398);
+            this.pictureBox3.Size = new System.Drawing.Size(123, 389);
             this.pictureBox3.TabIndex = 35;
             this.pictureBox3.TabStop = false;
             // 

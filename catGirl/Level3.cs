@@ -136,7 +136,9 @@ namespace catGirl
                     }
                     //if time is end 
                     if (tool["S_timer"] <= 0)
-                    {
+                    { 
+                        // stop the game timer
+                        timer3.Stop();
                         //save information for LINQ
                         tool2["Score"] = tool["Score"];
                         tool2["Missed"] = tool["Missed"];
@@ -145,8 +147,7 @@ namespace catGirl
                         // add all score
                         newGame.user_all_score += tool["Score"];
                         ////////////////////////////////////
-                        // stop the game timer
-                        timer3.Stop();           
+                                
                         // show the message box to say game is over. 
                         MessageBox.Show("Game Over!! Time is out" + "\r\n" + "Click OK to Restart");
                         c.Show();
@@ -160,6 +161,7 @@ namespace catGirl
                     // we need to stop the game
                     if (tool["Missed"] > 100)
                     {
+                        timer3.Stop(); // stop the game timer
                         //save information for LINQ
                         tool2["Score"] = tool["Score"];
                         tool2["Missed"] = tool["Missed"];
@@ -168,7 +170,7 @@ namespace catGirl
                         // add all score
                         newGame.user_all_score += tool["Score"];
                         ////////////////////////////////////
-                        timer3.Stop(); // stop the game timer
+                       
                                        // show the message box to say game is over. 
 
                         MessageBox.Show("Game Over!! you lost Many Stars" + "\r\n" + "Click OK to Restart");

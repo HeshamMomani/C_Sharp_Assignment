@@ -39,6 +39,8 @@ namespace catGirl
                 }
 
             }
+      
+
             this.Hide();
             Game_number++; //how much the player is played
             statL1 Go = new statL1();

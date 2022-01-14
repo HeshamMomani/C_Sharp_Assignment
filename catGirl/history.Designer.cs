@@ -40,22 +40,18 @@
             this.label9 = new System.Windows.Forms.Label();
             this.level = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.close = new System.Windows.Forms.PictureBox();
             this.back = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // titel
@@ -74,7 +70,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 156);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 23);
             this.label1.TabIndex = 3;
@@ -85,7 +81,7 @@
             // 
             this.name.AutoSize = true;
             this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.name.Location = new System.Drawing.Point(12, 251);
+            this.name.Location = new System.Drawing.Point(3, 40);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(66, 24);
             this.name.TabIndex = 4;
@@ -96,7 +92,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(185, 156);
+            this.label3.Location = new System.Drawing.Point(94, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 23);
             this.label3.TabIndex = 5;
@@ -106,7 +102,7 @@
             // 
             this.date.AutoSize = true;
             this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.date.Location = new System.Drawing.Point(185, 251);
+            this.date.Location = new System.Drawing.Point(94, 40);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(66, 24);
             this.date.TabIndex = 6;
@@ -117,7 +113,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(487, 146);
+            this.label5.Location = new System.Drawing.Point(396, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 23);
             this.label5.TabIndex = 7;
@@ -128,7 +124,7 @@
             // 
             this.dura.AutoSize = true;
             this.dura.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.dura.Location = new System.Drawing.Point(487, 251);
+            this.dura.Location = new System.Drawing.Point(396, 40);
             this.dura.Name = "dura";
             this.dura.Size = new System.Drawing.Size(66, 24);
             this.dura.TabIndex = 8;
@@ -139,7 +135,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(649, 146);
+            this.label7.Location = new System.Drawing.Point(526, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 23);
             this.label7.TabIndex = 9;
@@ -149,7 +145,7 @@
             // 
             this.sco.AutoSize = true;
             this.sco.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.sco.Location = new System.Drawing.Point(649, 251);
+            this.sco.Location = new System.Drawing.Point(526, 40);
             this.sco.Name = "sco";
             this.sco.Size = new System.Drawing.Size(66, 24);
             this.sco.TabIndex = 10;
@@ -160,7 +156,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(798, 146);
+            this.label9.Location = new System.Drawing.Point(650, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 23);
             this.label9.TabIndex = 11;
@@ -170,7 +166,7 @@
             // 
             this.level.AutoSize = true;
             this.level.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.level.Location = new System.Drawing.Point(804, 251);
+            this.level.Location = new System.Drawing.Point(650, 40);
             this.level.Name = "level";
             this.level.Size = new System.Drawing.Size(77, 24);
             this.level.TabIndex = 12;
@@ -190,13 +186,39 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.18841F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.81159F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.name, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.date, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dura, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.level, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.sco, 3, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(30, 153);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(798, 81);
+            this.tableLayoutPanel1.TabIndex = 34;
+            // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::catGirl.Properties.Resources.sw2;
-            this.pictureBox3.Location = new System.Drawing.Point(420, 130);
+            this.pictureBox3.Image = global::catGirl.Properties.Resources.sw21;
+            this.pictureBox3.Location = new System.Drawing.Point(533, 304);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(71, 164);
-            this.pictureBox3.TabIndex = 34;
+            this.pictureBox3.Size = new System.Drawing.Size(61, 134);
+            this.pictureBox3.TabIndex = 35;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox2
@@ -241,70 +263,30 @@
             this.back.Tag = "back";
             this.back.Click += new System.EventHandler(this.back_Click);
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::catGirl.Properties.Resources.sw2;
-            this.pictureBox4.Location = new System.Drawing.Point(97, 130);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(71, 164);
-            this.pictureBox4.TabIndex = 35;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::catGirl.Properties.Resources.sw2;
-            this.pictureBox5.Location = new System.Drawing.Point(572, 130);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(71, 164);
-            this.pictureBox5.TabIndex = 36;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::catGirl.Properties.Resources.sw2;
-            this.pictureBox6.Location = new System.Drawing.Point(727, 130);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(71, 164);
-            this.pictureBox6.TabIndex = 37;
-            this.pictureBox6.TabStop = false;
-            // 
             // history
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Pink;
             this.ClientSize = new System.Drawing.Size(893, 450);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.close);
             this.Controls.Add(this.back);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.level);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.sco);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.dura);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.date);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.name);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.titel);
             this.Name = "history";
             this.Text = "history";
             this.Load += new System.EventHandler(this.history_Load);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,9 +310,7 @@
         private System.Windows.Forms.PictureBox close;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }
