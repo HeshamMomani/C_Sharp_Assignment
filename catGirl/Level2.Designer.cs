@@ -34,18 +34,19 @@ namespace catGirl
             this.Missed = new System.Windows.Forms.Label();
             this.Timer = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PinkPanther = new System.Windows.Forms.PictureBox();
             this.Bomb = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Jewel = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.back = new System.Windows.Forms.PictureBox();
             this.close = new System.Windows.Forms.PictureBox();
+            this.name = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PinkPanther)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Bomb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Jewel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
             this.SuspendLayout();
@@ -96,50 +97,6 @@ namespace catGirl
             this.timer1.Tag = "timer1";
             this.timer1.Tick += new System.EventHandler(this.GameTick);
             // 
-            // PinkPanther
-            // 
-            this.PinkPanther.Image = global::catGirl.Properties.Resources.PinkPanther1;
-            this.PinkPanther.Location = new System.Drawing.Point(380, 507);
-            this.PinkPanther.Name = "PinkPanther";
-            this.PinkPanther.Size = new System.Drawing.Size(92, 146);
-            this.PinkPanther.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PinkPanther.TabIndex = 27;
-            this.PinkPanther.TabStop = false;
-            this.PinkPanther.Tag = "PinkPanther";
-            // 
-            // Bomb
-            // 
-            this.Bomb.Image = global::catGirl.Properties.Resources.Bomb;
-            this.Bomb.Location = new System.Drawing.Point(675, 17);
-            this.Bomb.Name = "Bomb";
-            this.Bomb.Size = new System.Drawing.Size(70, 70);
-            this.Bomb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Bomb.TabIndex = 23;
-            this.Bomb.TabStop = false;
-            this.Bomb.Tag = "Bomb";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::catGirl.Properties.Resources.Diamond;
-            this.pictureBox3.Location = new System.Drawing.Point(560, 17);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(61, 62);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 22;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Tag = "Jewel";
-            // 
-            // Jewel
-            // 
-            this.Jewel.Image = global::catGirl.Properties.Resources.Diamond;
-            this.Jewel.Location = new System.Drawing.Point(326, 61);
-            this.Jewel.Name = "Jewel";
-            this.Jewel.Size = new System.Drawing.Size(61, 62);
-            this.Jewel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Jewel.TabIndex = 21;
-            this.Jewel.TabStop = false;
-            this.Jewel.Tag = "Jewel";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::catGirl.Properties.Resources._5sec;
@@ -150,6 +107,50 @@ namespace catGirl
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "TimeBonus";
+            // 
+            // PinkPanther
+            // 
+            this.PinkPanther.Image = global::catGirl.Properties.Resources.PinkPanther1;
+            this.PinkPanther.Location = new System.Drawing.Point(395, 507);
+            this.PinkPanther.Name = "PinkPanther";
+            this.PinkPanther.Size = new System.Drawing.Size(92, 146);
+            this.PinkPanther.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PinkPanther.TabIndex = 27;
+            this.PinkPanther.TabStop = false;
+            this.PinkPanther.Tag = "PinkPanther";
+            // 
+            // Bomb
+            // 
+            this.Bomb.Image = global::catGirl.Properties.Resources.Bomb;
+            this.Bomb.Location = new System.Drawing.Point(689, 62);
+            this.Bomb.Name = "Bomb";
+            this.Bomb.Size = new System.Drawing.Size(70, 70);
+            this.Bomb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.Bomb.TabIndex = 23;
+            this.Bomb.TabStop = false;
+            this.Bomb.Tag = "Bomb";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::catGirl.Properties.Resources.Diamond;
+            this.pictureBox3.Location = new System.Drawing.Point(526, 70);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(61, 62);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 22;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Tag = "Jewel";
+            // 
+            // Jewel
+            // 
+            this.Jewel.Image = global::catGirl.Properties.Resources.Diamond;
+            this.Jewel.Location = new System.Drawing.Point(335, 61);
+            this.Jewel.Name = "Jewel";
+            this.Jewel.Size = new System.Drawing.Size(61, 62);
+            this.Jewel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.Jewel.TabIndex = 21;
+            this.Jewel.TabStop = false;
+            this.Jewel.Tag = "Jewel";
             // 
             // back
             // 
@@ -175,12 +176,24 @@ namespace catGirl
             this.close.Tag = "close";
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
+            // name
+            // 
+            this.name.AutoSize = true;
+            this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name.Location = new System.Drawing.Point(640, 9);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(149, 24);
+            this.name.TabIndex = 30;
+            this.name.Tag = "name";
+            this.name.Text = "Name:             ";
+            // 
             // Level2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
             this.ClientSize = new System.Drawing.Size(884, 665);
+            this.Controls.Add(this.name);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PinkPanther);
             this.Controls.Add(this.Score);
@@ -196,11 +209,11 @@ namespace catGirl
             this.Load += new System.EventHandler(this.Level2_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Level2_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Level2_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PinkPanther)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Bomb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Jewel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
             this.ResumeLayout(false);
@@ -221,5 +234,6 @@ namespace catGirl
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox back;
         private System.Windows.Forms.PictureBox close;
+        private System.Windows.Forms.Label name;
     }
 }

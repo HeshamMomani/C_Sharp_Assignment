@@ -50,6 +50,7 @@ namespace catGirl
         public Level2()
         {
             InitializeComponent();
+            newGame.level = 2;
             Reset();
         }
         private void Level2_Load(object sender, EventArgs e)
@@ -57,10 +58,15 @@ namespace catGirl
             Score.Location = new Point(20, 30);
             Missed.Location = new Point(220, 30);
             Timer.Location = new Point(420, 30);
+            close.Location = new Point(845, 0);
+            back.Location = new Point(789, 1);
+            name.Location = new Point(552, 0);
+            name.Text = "Name: " + Profile.player_Name();
         }
 
         private void GameTick(object sender, EventArgs e)
         {
+            history b = new history();
             Score.Text = "Score: " + tool["Score"]; // Score Lable 
             Timer.Text = "Timer: " + tool["S_Timer"] + " : " + tool["MS_Timer"]--;
             Missed.Text = "Missed: " + tool["Missed"];
@@ -68,9 +74,16 @@ namespace catGirl
             if (tool["MS_Timer"] == 0)
             {
                 tool["S_Timer"]--;
-                tool["MS_Timer"] = 20;
+                tool["MS_Timer"] = 30;
             }
+            if (tool["Score"] >= 40)
+            {
+                timer1.Stop();
+                start3 x = new start3();
+                x.Show();
+                this.Hide();
 
+            }
             if (Move["GoLeft"] == true && PinkPanther.Left > 0)
             {
                 if (tool["Score"] >= 15 && tool["Score"] < 30)
@@ -115,7 +128,7 @@ namespace catGirl
                         if ((string)Jewel.Tag == "Jewel")
                             tool["Score"]++;
                         else if ((string)Jewel.Tag == "TimeBonus")
-                            tool["S_Timer"] += 5;
+                            tool["Score"] += 5;
                         else if ((string)Jewel.Tag == "Bomb")
                             tool["S_Timer"] -= 7;
                     }
@@ -124,26 +137,31 @@ namespace catGirl
                         timer1.Stop();
                         Data["Score"] = tool["Score"];
                         Data["Missed"] = tool["Missed"];
-                        Data["S_timer"] = tool["S_timer"];
-                        Data["ms_timer"] = tool["ms_timer"];
+                        Data["S_timer"] = tool["S_Timer"];
+                        Data["ms_timer"] = tool["MS_Timer"];
                         // add all score
                         newGame.user_all_score += tool["Score"];
 
                         MessageBox.Show("Game Over!! Time is out" + "\r\n" + "Click OK to Restart");
-                        Reset();
+                        history a = new history();
+                        b.Show();
+                        this.Hide();
+                       
                     }
-                    if (tool["Missed"] >= 15)
+                 if (tool["Missed"] >= 15)
                     {
                         timer1.Stop();
                         Data["Score"] = tool["Score"];
                         Data["Missed"] = tool["Missed"];
-                        Data["S_timer"] = tool["S_timer"];
-                        Data["ms_timer"] = tool["ms_timer"];
+                        Data["S_timer"] = tool["S_Timer"];
+                        Data["ms_timer"] = tool["MS_Timer"];
                         // add all score
                         newGame.user_all_score += tool["Score"];
 
                         MessageBox.Show("Game Over!! We lost alot of Jewels" + "\r\n" + "Click OK to Restart");
-                        Reset();
+                        b.Show();
+                        this.Hide();
+                       
                     }
 
                     if (tool["Score"] >= 10 && tool["Score"] < 15)
@@ -151,7 +169,7 @@ namespace catGirl
                         tool["Speed"] = 10;
                     }
 
-                    if (tool["Score"] >= 15 && tool["Score"] < 30)
+                    if (tool["Score"] >= 25 && tool["Score"] <40)
                     {
                         tool["Speed"] = 15;
                     }

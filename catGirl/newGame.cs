@@ -12,12 +12,13 @@ namespace catGirl
 {
     public partial class newGame : Form
         
-    {     public static int Game_number=0;
+    {    public static int Game_number=0;
         public static newGame instance2;//to allow acess this form
         public TextBox tb;//to be able to access on name textbox 
         public static int user_all_score = 0;
         List <string> All_Player_Name=new List<string>();
         public static int count_palyer=0;
+        public static int level = 1;
         public newGame()
         {
             InitializeComponent();
@@ -39,12 +40,13 @@ namespace catGirl
 
             }
             this.Hide();
-            Game_number++;
-            Level1 Go = new Level1();
-            Level1.instance3.user_name.Text="Name: " +tb.Text;
-            Go.ShowDialog();
+            Game_number++; //how much the player is played
+            statL1 Go = new statL1();
+            Go.Show();
+           
+            
         }
-
+       
         private void newGame_Load(object sender, EventArgs e)
         {
 

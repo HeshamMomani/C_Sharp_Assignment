@@ -74,6 +74,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="history.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="history.Designer.cs">
+      <DependentUpon>history.cs</DependentUpon>
+    </Compile>
     <Compile Include="Level2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,11 +106,38 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="start2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="start2.Designer.cs">
+      <DependentUpon>start2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="start3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="start3.Designer.cs">
+      <DependentUpon>start3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="static.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="static.Designer.cs">
+      <DependentUpon>static.cs</DependentUpon>
+    </Compile>
+    <Compile Include="statL1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statL1.Designer.cs">
+      <DependentUpon>statL1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="history.resx">
+      <DependentUpon>history.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Level2.resx">
       <DependentUpon>Level2.cs</DependentUpon>
@@ -122,6 +155,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="start2.resx">
+      <DependentUpon>start2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="start3.resx">
+      <DependentUpon>start3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="static.resx">
+      <DependentUpon>static.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statL1.resx">
+      <DependentUpon>statL1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -206,6 +251,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PinkPanther1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\badstr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backg1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bak.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bck1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bbck.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back31.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sweet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sw2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

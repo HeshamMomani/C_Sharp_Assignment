@@ -22,13 +22,12 @@ namespace catGirl
         Random randB = new Random();
         PictureBox drop = new PictureBox(); // create a new drop picture box, this will added dynamically
         public static Level1 instance3;
-        public Label user_name;
+   
         public Level1()
         {
             InitializeComponent();
             instance3 = this;
-           user_name = name;
-        
+           
             Restart();
 
         }
@@ -40,12 +39,13 @@ namespace catGirl
             timer.Location = new Point(420, 30);
            name.Location = new Point(552, 0);
             close.Location = new Point(845, 0);   
-            back.Location = new Point(789, 1);    
+            back.Location = new Point(789, 1);
+            name.Text = "Name: "+ Profile.player_Name();
         }
 
         private void GameTick(object sender, EventArgs e )
         {
-          
+            history a = new history();
             sc.Text = "Score :" + tool["Score"]; //label
          miss.Text = "Misssed :" + tool["Missed"];//label;
            timer.Text = "Timer:  " + tool["S_timer"] + " : " + tool["ms_timer"]--;//timer label
@@ -55,7 +55,14 @@ namespace catGirl
                 tool["S_timer"]--;
                 tool["ms_timer"] = 30;
             }
+            if (tool["Score"] >= 15)
+            {
+                MainTimer1.Stop();
+                start2 x = new start2();
+                x.Show();
+                this.Hide();
 
+            }
 
             // if the go left boolean is true AND player left is greater than 0
             if (move["GoLeft"] == true && player.Left > 0)
@@ -116,32 +123,47 @@ namespace catGirl
                     }
 
                     // if the score is equals to or greater than 20
-                    if (tool["Score"] >= 20)
+                    if (tool["Score"] >= 11)
                     {
-                        tool["speed"] = 16; // increase the strawberry speed to 20
+                        tool["speed"] = 14; // increase the strawberry speed to 20
                     }
+
 
                     // if the missed number is greater than 5
                     // we need to stop the game
-                    if (tool["Missed"] > 10       || (tool["S_timer"] <= 0 && tool["ms_timer"] <= 0))
+                    if (tool["S_timer"] <= 0)
                     {
-                        //save information for LINQ
+                        MainTimer1.Stop();
+                       tool2["Score"] = tool["Score"];
+                        tool2["Missed"] = tool["Missed"];
+                        tool2["S_timer"] = tool["S_timer"];
+                        tool2["ms_timer"] = tool["ms_timer"];
+                        // add all score
+                        newGame.user_all_score += tool["Score"];
+
+                        MessageBox.Show("Game Over!! Time is out" + "\r\n" + "Click OK to Restart");
+                        
+                        a.Show();
+                        this.Hide();
+
+                    }
+                    if (tool["Missed"] >= 15)
+                    {
+                        MainTimer1.Stop();
                         tool2["Score"] = tool["Score"];
                         tool2["Missed"] = tool["Missed"];
                         tool2["S_timer"] = tool["S_timer"];
                         tool2["ms_timer"] = tool["ms_timer"];
                         // add all score
                         newGame.user_all_score += tool["Score"];
-                        ///////////////////////////////////////////////
-                        MainTimer1.Stop(); // stop the game timer
-                        // show the message box to say game is over. 
-            
-                        
-                            MessageBox.Show("Game Over!! Time is out" + "\r\n" + "Click OK to Restart");
-                        /*todo game final game page*/
-                        // once the players clicks OK we restart the game again
-                        Restart();
+                      
+                        MessageBox.Show("Game Over!! We lost alot of Jewels" + "\r\n" + "Click OK to Restart");
+                        MainTimer1.Stop();
+                        a.Show(); 
+                        this.Hide();
+                      
                     }
+                    
 
                 }
 
@@ -177,8 +199,8 @@ namespace catGirl
                 // friut move
                 if(strawberry is PictureBox && (string)strawberry.Tag=="fruit")
                     // make fuits apper randomly
-                    strawberry.Top = randA.Next(5, 100) * -1; // -1 to move down
-                strawberry.Left = randB.Next(2, this.ClientSize.Width - strawberry.Width); // to apper random from left 5 and the right we should calculate it
+                    strawberry.Top = randA.Next(20, 100) * -1;
+                strawberry.Left = randB.Next(5, this.ClientSize.Width - strawberry.Width); 
             }
         // starting value
             tool["Score"] = 0;

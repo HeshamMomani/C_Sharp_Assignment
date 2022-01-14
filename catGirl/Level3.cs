@@ -12,7 +12,8 @@ namespace catGirl
 {
     public partial class Level3 : Form
     {
-        Dictionary<string, int> tool = new Dictionary<string, int>() { { "Score", 0 }, { "speed", 16 }, { "Missed", 0 }, { "ms_timer", 30 }, { "S_timer", 30 } };
+        
+        Dictionary<string, int> tool = new Dictionary<string, int>() { { "Score", 0 }, { "speed", 10 }, { "Missed", 0 }, { "ms_timer", 30 }, { "S_timer", 30 } };
         Dictionary<string, bool> move = new Dictionary<string, bool>() { { "GoLeft", false }, { "GoRight", false } };
        //LINQ
         public static Dictionary<string, int> tool2 = new Dictionary<string, int>() { { "Score", 0 }, { "speed", 12 }, { "Missed", 0 }, { "ms_timer", 30 }, { "S_timer", 30 } };
@@ -22,7 +23,10 @@ namespace catGirl
         PictureBox drop = new PictureBox(); // create a new drop picture box, this will added dynamically
         public Level3()
         {
+            
             InitializeComponent();
+            newGame.level = 3;
+            Restart();
         }
 
         private void Level3_Load(object sender, EventArgs e)
@@ -32,11 +36,13 @@ namespace catGirl
             timer.Location = new Point(420, 30);
             close.Location = new Point(845, 0);
             back.Location = new Point(789, 1);
-
+            name.Location = new Point(552, 0);
+            name.Text = "Name: " + Profile.player_Name();
         }
 
         private void GameTick3(object sender, EventArgs e)
         {
+            history c = new history();
             sc.Text = "Score :" + tool["Score"]; //label
             miss.Text = "Misssed :" + tool["Missed"];//label;
             timer.Text = "Timer:  " + tool["S_timer"] + " : " + tool["ms_timer"]--;//timer label
@@ -73,7 +79,7 @@ namespace catGirl
             {
 
                 // if strawberry is a type of picture box AND it has the tag of fruit
-                if (strawberry is PictureBox && (string)strawberry.Tag == "fruit")
+                if (strawberry is PictureBox && (string)strawberry.Tag == "fruit" || (string)strawberry.Tag == "addTime" || (string)strawberry.Tag == "badfruit")
                 {
                     // then move strawberry towards the bottom
                     strawberry.Top += tool["speed"];
@@ -82,6 +88,9 @@ namespace catGirl
                     // if the strawberry reaches bottom of the screen
                     if (strawberry.Top + strawberry.Height > this.ClientSize.Height)
                     {
+
+
+
                         // if the strawberry hit the floor then we show the drop image
                         drop.Image = Properties.Resources.drop; // set the drop image
                         drop.Location = strawberry.Location; // drop shows up on the same location as the strawberry
@@ -93,9 +102,12 @@ namespace catGirl
 
                         strawberry.Top = randA.Next(20, 100) * -1; // position the strawberry to a random  location
                         strawberry.Left = randB.Next(5, this.ClientSize.Width - strawberry.Width); // position the strawberry to a random location
-                        tool["Missed"]++; // add 1 to the missed integer
+                        if ((string)strawberry.Tag == "fruit")
+                            tool["Missed"]++; // add 1 to the missed integer
+
 
                     }
+
 
                     // if the strawberry bound with the player image
                     // if both picture boxes collide
@@ -103,18 +115,27 @@ namespace catGirl
                     {
                         strawberry.Top = randA.Next(80, 100) * -1; // position the strawberry to a random  location
                         strawberry.Left = randB.Next(5, this.ClientSize.Width - strawberry.Width); // position the strawberry to a random X location
-                        tool["Score"]++; // add 1 to the score
+                        if ((string)strawberry.Tag == "fruit")
+                            tool["Score"]++; // add 1 to the score
+                        else if ((string)strawberry.Tag == "addTime")
+                        {
+                            tool["Score"] += 15; // add 15 to the score
+                            tool["S_timer"]++;
+                        }
+                        else if ((string)strawberry.Tag == "badfruit")
+                        {
+                            tool["Missed"] += 10; // lose 15 from score }
+                        }
+
                     }
 
                     // if the score is equals to or greater than 20
                     if (tool["Score"] >= 200)
                     {
-                        tool["speed"] = 20; // increase the strawberry speed to 20
+                        tool["speed"] = 16; // increase the strawberry speed to 20
                     }
-
-                    // if the missed number is greater than 5
-                    // we need to stop the game
-                    if (tool["Missed"] > 100 || (tool["S_timer"] <= 0 && tool["ms_timer"] <= 0))
+                    //if time is end 
+                    if (tool["S_timer"] <= 0)
                     {
                         //save information for LINQ
                         tool2["Score"] = tool["Score"];
@@ -124,47 +145,20 @@ namespace catGirl
                         // add all score
                         newGame.user_all_score += tool["Score"];
                         ////////////////////////////////////
-                        timer3.Stop(); // stop the game timer
+                        // stop the game timer
+                        timer3.Stop();           
                         // show the message box to say game is over. 
-                  
-                            MessageBox.Show("Game Over!! Time is out" + "\r\n" + "Click OK to Restart");
-
+                        MessageBox.Show("Game Over!! Time is out" + "\r\n" + "Click OK to Restart");
+                        c.Show();
+                        this.Hide();
                         // once the players clicks OK we restart the game again
-                        Restart();
+                        
                     }
 
-                }
-
-            }
-            //for each Control we are calling clock in this form
-            foreach (Control clock in this.Controls)
-            {
-
-                // if strawberry is a type of picture box AND it has the tag of fruit
-                if (clock is PictureBox && (string)clock.Tag == "addTime")
-                {
-                    // then move strawberry towards the bottom
-                    clock.Top += tool["speed"];
-
-
-                    // if the  clock bound with the player image
-                    // if both picture boxes collide
-                    if (clock.Bounds.IntersectsWith(player3.Bounds))
-                    {
-                        clock.Top = randA.Next(80, 100) * -1; // position the  clock to a random  location
-                        clock.Left = randB.Next(5, this.ClientSize.Width - clock.Width); // position the  clock to a random X location
-                        tool["Score"] += 15; // add 15 to the score
-                        tool["S_timer"]++;
-                    }
-                    // if the score is equals to or greater than 20
-                    if (tool["Score"] >= 200)
-                    {
-                        tool["speed"] = 16; // increase the strawberry speed to 20
-                    }
 
                     // if the missed number is greater than 100
                     // we need to stop the game
-                    if (tool["Missed"] > 100 || (tool["S_timer"] <= 0 && tool["ms_timer"] <= 0))
+                    if (tool["Missed"] > 100)
                     {
                         //save information for LINQ
                         tool2["Score"] = tool["Score"];
@@ -177,69 +171,18 @@ namespace catGirl
                         timer3.Stop(); // stop the game timer
                                        // show the message box to say game is over. 
 
-                        MessageBox.Show("Game Over!! Time is out" + "\r\n" + "Click OK to Restart");
-
-                        // once the players clicks OK we restart the game again
-                        Restart();
-                    }
-
-
-
-                }
-
-            }
-            //for each Control we are calling bad fruit in this form
-            foreach (Control badFruit in this.Controls)
-            {
-
-                // if strawberry is a type of picture box AND it has the tag of fruit
-                if (badFruit is PictureBox && (string)badFruit.Tag == "badfruit")
-                {
-                    // then move strawberry towards the bottom
-                    badFruit.Top += tool["speed"];
-
-
-                    // if the  clock bound with the player image
-                    // if both picture boxes collide
-                    if (badFruit.Bounds.IntersectsWith(player3.Bounds))
-                    {
-                        badFruit.Top = randA.Next(50, 200) * -1; // position the  clock to a random  location
-                        badFruit.Left = randB.Next(10, this.ClientSize.Width - badFruit.Width); // position the  clock to a random X location
-                        tool["Missed"] += 10; // add 15 to the score
-
-                    }
-                    // if the score is equals to or greater than 20
-                    if (tool["Score"] >= 200)
-                    {
-                        tool["speed"] = 16; // increase the strawberry speed to 20
-                    }
-
-                    // if the missed number is greater than 100
-                    // we need to stop the game
-                    if (tool["Missed"] > 100 || (tool["S_timer"] <= 0 && tool["ms_timer"] <= 0))
-                    {
-                        //save information for LINQ
-                        tool2["Score"] = tool["Score"];
-                        tool2["Missed"] = tool["Missed"];
-                        tool2["S_timer"] = tool["S_timer"];
-                        tool2["ms_timer"] = tool["ms_timer"];
-                        // add all score
-                        newGame.user_all_score += tool["Score"];
-                        ////////////////////////////////////
-                        timer3.Stop(); // stop the game timer
-                                       // show the message box to say game is over. 
-
-                        MessageBox.Show("Game Over!! Time is out" + "\r\n" + "Click OK to Restart");
-
-                        // once the players clicks OK we restart the game again
-                        Restart();
+                        MessageBox.Show("Game Over!! you lost Many Stars" + "\r\n" + "Click OK to Restart");
+                       
+                        c.Show();
+                        this.Hide();
+                       // once the players clicks OK we restart the game again
+                   
                     }
 
                 }
 
             }
         }
-
         private void keyDown(object sender, KeyEventArgs e)
         {
             //if left or rigth key pressed it going to change
@@ -260,38 +203,21 @@ namespace catGirl
         public void Restart()
         {
 
-            foreach (Control strawberry in this.Controls)
+            foreach (Control star in this.Controls)
             {
-                // friut move
-                if (strawberry is PictureBox && (string)strawberry.Tag == "fruit")
+
+                // star move
+                if (star is PictureBox && (string)star.Tag == "fruit" || (string)star.Tag == "addTime" || (string)star.Tag == "badfruit")
                     // make fuits apper randomly
-                    strawberry.Top = randA.Next(5, 100) * -1; // -1 to move down
-                strawberry.Left = randB.Next(5, this.ClientSize.Width - strawberry.Width); // to apper random from left 5 and the right we should calculate it
+                    star.Top = randA.Next(5, 100) * -1; // -1 to move down
+                star.Left = randB.Next(5, this.ClientSize.Width - star.Width); // to apper random from left 5 and the right we should calculate it
 
             }
 
-            foreach (Control clock in this.Controls)
-            {
-                // clock move
-                if (clock is PictureBox && (string)clock.Tag == "addTime")
-                    // make clock apper randomly
-                    clock.Top = randA.Next(5, 100) * -1; // -1 to move down
-                clock.Left = randB.Next(3, this.ClientSize.Width - clock.Width); // to apper random from left 5 and the right we should calculate it
-
-            }
-
-            foreach (Control badFruit in this.Controls)
-            {
-                // badFruit move
-                if (badFruit is PictureBox && (string)badFruit.Tag == "badfruit")
-                    // make badFruit apper randomly
-                    badFruit.Top = randA.Next(5, 100) * -1; // -1 to move down
-                badFruit.Left = randB.Next(2, this.ClientSize.Width - badFruit.Width); // to apper random from left 5 and the right we should calculate it
-
-            }
+          
             // starting value
             tool["Score"] = 0;
-            tool["speed"] = 16;
+            tool["speed"] = 10;
             tool["Missed"] = 0;
             tool["S_timer"] = 30;
 

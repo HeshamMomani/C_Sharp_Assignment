@@ -32,7 +32,7 @@ namespace catGirl
         public string _Name
         {
             get { return pName; }
-            set { pName = playername.Text; user_profile_info.Add("Name",pName); }
+            set { pName = playername.Text;  }
         }
 
         public string _Gender
@@ -52,7 +52,7 @@ namespace catGirl
         {
 
             get { return pAge; }
-            set { pAge = age.Text; user_profile_info.Add("Age", pAge); }
+            set { pAge = age.Text;  }
         }
 
 
@@ -80,7 +80,8 @@ namespace catGirl
         {
             NP.pName = playername.Text;
             NP.pAge = age.Text;
-      
+            user_profile_info.Add("Age", age.Text);
+            user_profile_info.Add("Name", playername.Text);
             this.Hide();
             newGame Gamee = new newGame();
             newGame.instance2.tb.Text = _Name;// retreve the name to new page
@@ -104,6 +105,10 @@ namespace catGirl
         private void Profile_Load(object sender, EventArgs e)
         {
 
+        }
+        public override string ToString()
+        {
+            return playername.Text;
         }
     }
 }
