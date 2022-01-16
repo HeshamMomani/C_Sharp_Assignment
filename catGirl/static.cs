@@ -21,10 +21,10 @@ namespace catGirl
         {
 
             num_game.Text = Convert.ToString(newGame.Game_number);
-            num_profile.Text = Convert.ToString(newGame.count_palyer);
+            num_profile.Text = Convert.ToString(Profile.count_palyer);
            int max_sc = Math.Max(Level1.Score_result(),Math.Max(Level2.Score_result(), Level3.Score_result()));
             highest.Text=Convert.ToString(max_sc);
-            int min_sc = Math.Min(Level1.Score_result(),Math.Min(Level2.Score_result(), Level3.Score_result()));
+            int min_sc = Math.Min(Level1.Score_result(), Math.Min(Level2.Score_result(), Level3.Score_result()));
             lowest.Text=Convert.ToString(min_sc);
             int min_du= Math.Min(Level1.S_timer_result(), Math.Min(Level2.S_timer_result(), Level3.S_timer_result()));
             mindu.Text= Convert.ToString(min_du);

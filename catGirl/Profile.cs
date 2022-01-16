@@ -15,16 +15,17 @@ namespace catGirl
     public partial class Profile : Form
     {
         public static Profile instance;// in order to be able to acess this form
+        public static  Profile NP; //control on the profile //static d
 
-        public Profile NP;
-        public static Dictionary<string, string> user_profile_info = new Dictionary<string, string>();
-        private string pName;
+        public static Dictionary<string, string> user_profile_info = new Dictionary<string, string>(); //linq x["name"]="nour"
+        // يخزن المعلومات و يسمح بنقلها بين الفورمات 
+        private  string pName;
         private string pGender;
-        private string pColor;
+       // private string pColor;
         private string pAge;
-        private static int num_Player = 0;
-   
-
+        private static int num_Player = 0; //  كم مره لعب 
+        public static int count_palyer = 0; // عدد اللاعبين// اللاهب يسجل اسمه مره وحده
+        List<string> All_Player_Name = new List<string>(); 
         public int _numPlayer
         {
             get { return num_Player; }
@@ -42,12 +43,12 @@ namespace catGirl
             set { pGender = value; }
         }
 
-        public string _Color
+        /*public string _Color
         {
 
             get { return pColor; }
             set { pColor = value; }
-        }
+        }*/
         public string _Age
         {
 
@@ -61,27 +62,40 @@ namespace catGirl
             InitializeComponent();
 
             num_Player += 1;
-            NP = this;
+             NP=this; // نتحكم بال profile 
             instance = this;// since this folder is created it will save its information
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            instance.pGender = "Female";
+            instance.pGender = "Female"; //this
 
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            instance.pGender = "Male";
+            instance.pGender = "Male"; //this
         }
 
         private void save_Click(object sender, EventArgs e)
         {
+            //search about player profile if has an account or not 
+            if (All_Player_Name.Count == 0) { All_Player_Name.Add(Profile.player_Name()); count_palyer++; }
+            else
+            {
+                for (int i = 0; i < All_Player_Name.Count(); i++)
+                {
+                    if (!All_Player_Name.Contains(Profile.player_Name()))
+                        count_palyer++;
+                }
+
+            }
             NP.pName = playername.Text;
             NP.pAge = age.Text;
-            user_profile_info.Add("Age", age.Text);
-            user_profile_info.Add("Name", playername.Text);
+            //dictionary //
+            user_profile_info.Add(age.Text, age.Text); //key == value 
+            user_profile_info.Add(playername.Text, playername.Text); //key == value
+
             this.Hide();
             newGame Gamee = new newGame();
             newGame.instance2.tb.Text = _Name;// retreve the name to new page
@@ -90,16 +104,19 @@ namespace catGirl
         }
        
 
-        //LINQ
+        //LINQ //sql save data 
         public static string player_Name()
         {
-            return user_profile_info.Where(x => x.Key == "Name").Select(x => x.Value).FirstOrDefault();
+            //user_profile_info[key] == key (value)
+            return user_profile_info.Where(x => x.Key == NP.pName /*this name*/).Select(x => x.Value).FirstOrDefault(); 
+            //dictionary iterator/pointer 
         }
 
 
         public static string player_Age()
         {
-            return user_profile_info.Where(x => x.Key == "Age").Select(x => x.Value).FirstOrDefault();
+            //user_profile_info[key] == key (value)
+            return user_profile_info.Where(x => x.Key == NP.pAge).Select(x => x.Value).FirstOrDefault();
         }
         //
         private void Profile_Load(object sender, EventArgs e)
